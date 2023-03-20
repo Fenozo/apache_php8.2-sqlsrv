@@ -11,17 +11,17 @@ rm composer_installer.php
 
 
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
+# RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+# RUN curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
-RUN apt-get install -y msodbcsql18 && mssql-tools18
+# RUN apt-get install -y msodbcsql18 && mssql-tools18
 
 
-RUN apt-get update && \
-    docker-php-ext-install mysqli pdo pdo_mysql
+# RUN apt-get update && \
+#     docker-php-ext-install mysqli pdo pdo_mysql
 
-RUN pecl install sqlsrv-5.11.0beta1
-RUN pecl install pdo_sqlsrv-5.11.0beta1
+# RUN pecl install sqlsrv-5.11.0beta1
+# RUN pecl install pdo_sqlsrv-5.11.0beta1
 
 EXPOSE 80
 
