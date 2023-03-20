@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  php8.2-apache:
+    container_name: php8.2-apache
+    ports:
+      - "8080:80"
+    build: './build/php'
+    volumes:
+      - ./app:/var/www/html
+  mysql:
+    ports:
+      - "3307:3306"
+    build: './build/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: "super-secret-password"
+      MYSQL_DATABASE: "my-wonderful-website"
+    volumes:
+      - dbData:/var/lib/mysql
+volumes:
+  app:
+  dbData:
